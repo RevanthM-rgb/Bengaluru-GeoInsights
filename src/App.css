@@ -1,0 +1,194 @@
+.basemap-popup {
+  position: absolute;
+  top: 85px;
+  left: 52px;
+  background-color: #ffffff;
+  padding: 8px 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 1000;
+  width: 180px;
+  user-select: none;
+  transition: opacity 0.3s ease;
+}
+
+.leaflet-control-layers.leaflet-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leaflet-control-layers.leaflet-bar button {
+  width: 20px;
+  height: 2px;
+  font-size: 16px; /* Adjust the icon size */
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); */
+}
+
+.leaflet-control-layers.leaflet-bar button:hover {
+  background-color: #f0f0f0;
+}
+
+.basemap-option {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 6px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.basemap-option:hover {
+  background-color: #f0f4ff;
+  color: #1a3ed4; /* subtle blue */
+}
+
+.basemap-option.selected {
+  font-weight: 600;
+  background-color: #d0d9ff;
+  color: #1a3ed4;
+  box-shadow: inset 2px 0 0 #1a3ed4;
+}
+
+.basemap-option svg {
+  width: 18px;
+  height: 18px;
+  fill: #666;
+  flex-shrink: 0;
+}
+
+.basemap-option.selected svg {
+  fill: #1a3ed4;
+}
+
+.app-header {
+  background-color: #08164e;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  height: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.app-header h1 {
+  font-size: 20px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  margin-left: -7px;
+}
+
+/* ===== Layer List Widget Styles ===== */
+
+.layerlist-popup {
+  position: absolute;
+  top: -2000px;   /* position below basemap */
+  left: 1220px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 8px 12px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  width: 200px;
+  user-select: none;
+  z-index: 1000;
+  border-radius: 2px;
+}
+
+.layerlist-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #333;
+  transition: background-color 0.25s ease;
+}
+
+.layerlist-item:hover {
+  background-color: #f0f4ff;
+}
+
+.layerlist-item-icon {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  fill: #666;
+}
+
+.layerlist-item-label {
+  flex-grow: 1;
+}
+
+.layerlist-item input[type="checkbox"] {
+  cursor: pointer;
+  margin-left: 8px;
+  transform: scale(1.1);
+}
+/* Search Widget Styles */
+.search-widget {
+  position: absolute;
+  top: 10px;
+  /* override inline left and move to right */
+  left: auto !important;
+  right: 1180px !important;
+  z-index: 1000;
+  background-color: white;
+  padding: 8px;
+  border-radius: 1px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  width: 1300px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.search-widget input[type="text"] {
+  width: calc(100% - 12px);
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline-offset: 2px;
+}
+
+.search-widget ul {
+  list-style: none;
+  margin: 4px 0 0 0;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+}
+
+.search-widget li {
+  padding: 6px 8px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.search-widget li:hover {
+  background-color: #f0f4ff;
+}
