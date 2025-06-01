@@ -1,47 +1,67 @@
-// CustomSearch.js
 import React, { useState, useEffect } from "react";
 import { useMap } from "react-leaflet";
 import L from "leaflet";
 
-export default function CustomSearch({ wardsData, schoolsData, onSelectFeature }) {
+export default function CustomSearch({ wardsData, schoolsData, treeData, onSelectFeature }) {
   const map = useMap();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
 
-  const searchableItems = [];
+  const searchableItems = React.useMemo(() => {
+    const items = [];
 
-  if (wardsData) {
-    wardsData.features.forEach((feature) => {
-      const name = feature.properties?.KGISWardName || "Unnamed Ward";
-      searchableItems.push({
-        type: "Ward",
-        name,
-        feature,
-        latlng: null,
-        bounds: L.geoJSON(feature).getBounds(),
-      });
-    });
-  }
-
-  if (schoolsData) {
-    schoolsData.features.forEach((feature) => {
-      const name =
-        feature.properties?.tags?.name ||
-        feature.properties?.name ||
-        "Unnamed School";
-      const coords = feature.geometry?.coordinates;
-      if (coords && feature.geometry.type === "Point") {
-        searchableItems.push({
-          type: "School",
+    if (wardsData) {
+      wardsData.features.forEach((feature) => {
+        const name = feature.properties?.KGISWardName || "Unnamed Ward";
+        items.push({
+          type: "Ward",
           name,
           feature,
-          latlng: [coords[1], coords[0]],
-          bounds: null,
+          latlng: null,
+          bounds: L.geoJSON(feature).getBounds(),
         });
-      }
-    });
-  }
+      });
+    }
 
+    if (schoolsData) {
+      schoolsData.features.forEach((feature) => {
+        const name =
+          feature.properties?.tags?.name ||
+          feature.properties?.name ||
+          "Unnamed School";
+        const coords = feature.geometry?.coordinates;
+        if (coords && feature.geometry.type === "Point") {
+          items.push({
+            type: "School",
+            name,
+            feature,
+            latlng: [coords[1], coords[0]],
+            bounds: null,
+          });
+        }
+      });
+    }
+
+    // Add Tree Census data to searchable items
+    if (treeData) {
+      treeData.features.forEach((feature, idx) => {
+        const name = feature.properties?.TreeName || "Unnamed Tree";
+        const coords = feature.geometry?.coordinates;
+        if (coords && feature.geometry.type === "Point") {
+          feature.__key = `tree-${idx}`; 
+          items.push({
+            type: "Tree",
+            name,
+            feature,
+            latlng: [coords[1], coords[0]],
+            bounds: null,
+          });
+        }
+      });
+    }
+
+    return items;
+  }, [wardsData, schoolsData, treeData]); 
   useEffect(() => {
     if (query.length === 0) {
       setResults([]);
@@ -52,7 +72,7 @@ export default function CustomSearch({ wardsData, schoolsData, onSelectFeature }
       item.name.toLowerCase().includes(lowerQuery)
     );
     setResults(filtered.slice(0, 10));
-  }, [query]);
+  }, [query, searchableItems]); 
 
   const onSelect = (item) => {
     setQuery("");
@@ -84,7 +104,7 @@ export default function CustomSearch({ wardsData, schoolsData, onSelectFeature }
     >
       <input
         type="text"
-        placeholder="Search wards or schools..."
+        placeholder="Search wards, schools, or trees..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         style={{

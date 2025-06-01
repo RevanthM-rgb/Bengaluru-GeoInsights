@@ -1,3 +1,46 @@
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; 
+}
+
+.app-header {
+  background-color: #08164e;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  height: 60px; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0; 
+}
+
+.app-header h1 {
+  font-size: 20px;
+  margin: 0;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  margin-left: -7px;
+  margin-top: 10px;
+}
+
+
+.leaflet-container {
+  height: calc(100vh - 60px) !important; 
+  width: 100%;
+}
+
+
+
+
 .basemap-popup {
   position: absolute;
   top: 85px;
@@ -21,7 +64,7 @@
 .leaflet-control-layers.leaflet-bar button {
   width: 20px;
   height: 2px;
-  font-size: 16px; /* Adjust the icon size */
+  font-size: 16px; 
   padding: 0;
   display: flex;
   align-items: center;
@@ -31,7 +74,7 @@
   border: none;
   cursor: pointer;
   border-radius: 2px;
-  /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); */
+  
 }
 
 .leaflet-control-layers.leaflet-bar button:hover {
@@ -52,7 +95,7 @@
 
 .basemap-option:hover {
   background-color: #f0f4ff;
-  color: #1a3ed4; /* subtle blue */
+  color: #1a3ed4; 
 }
 
 .basemap-option.selected {
@@ -73,92 +116,68 @@
   fill: #1a3ed4;
 }
 
-.app-header {
-  background-color: #08164e;
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 20px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  height: 40px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.app-header h1 {
-  font-size: 20px;
-  margin: 0;
-  font-weight: 600;
-}
-
-.logo {
-  width: 32px;
-  height: 32px;
-  margin-left: -7px;
-}
-
-/* ===== Layer List Widget Styles ===== */
-
-.layerlist-popup {
+.Bookmark-popup {
   position: absolute;
-  top: -2000px;   /* position below basemap */
-  left: 1220px;
+  top: 40px; 
+  right: 10px;
+  margin-right: 10px;
   background: #fff;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   padding: 8px 12px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  width: 200px;
+  width: 250px;
   user-select: none;
   z-index: 1000;
   border-radius: 2px;
 }
 
-.layerlist-item {
+.layerlist-popup {
+  position: absolute;
+  top: 40px; 
+  right: 10px;
+  margin-right: 50px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 8px 12px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  width: 250px;
+  user-select: none;
+  z-index: 1000;
+  border-radius: 2px;
+}
+.layerlist-option {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 10px;
+  padding: 8px 0;
   cursor: pointer;
-  border-radius: 5px;
   font-size: 14px;
   color: #333;
-  transition: background-color 0.25s ease;
 }
 
-.layerlist-item:hover {
-  background-color: #f0f4ff;
-}
-
-.layerlist-item-icon {
-  margin-right: 10px;
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-  fill: #666;
-}
-
-.layerlist-item-label {
+.layerlist-option label {
   flex-grow: 1;
+  cursor: pointer; 
 }
 
-.layerlist-item input[type="checkbox"] {
+.layerlist-option input[type="checkbox"] {
   cursor: pointer;
-  margin-left: 8px;
+  margin-right: 8px;
   transform: scale(1.1);
 }
+
 /* Search Widget Styles */
 .search-widget {
   position: absolute;
   top: 10px;
-  /* override inline left and move to right */
-  left: auto !important;
-  right: 1180px !important;
+  left: auto !important; 
+  right: 1210px !important; 
   z-index: 1000;
   background-color: white;
   padding: 8px;
   border-radius: 1px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
-  width: 1300px;
+  width: 1300px; 
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -191,4 +210,11 @@
 
 .search-widget li:hover {
   background-color: #f0f4ff;
+}
+
+/* Custom tree icon styles */
+.custom-tree-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
