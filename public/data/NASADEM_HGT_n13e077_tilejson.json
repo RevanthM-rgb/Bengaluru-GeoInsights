@@ -1,0 +1,1 @@
+{"tilejson":"2.2.0","version":"1.0.0","scheme":"xyz","tiles":["https://planetarycomputer.microsoft.com/api/data/v1/item/tiles/WebMercatorQuad/{z}/{x}/{y}@1x?collection=nasadem&item=NASADEM_HGT_n13e077&assets=elevation&colormap_name=terrain&rescale=-100%2C4000&format=png"],"minzoom":0,"maxzoom":24,"bounds":[76.999861,12.999861,78.000139,14.000139],"center":[77.5,13.5,0]}
