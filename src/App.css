@@ -12,7 +12,11 @@ html, body, #root {
   gap: 12px;
   padding: 10px 20px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+<<<<<<< HEAD
   height: 40px;
+=======
+  height: 40px; 
+>>>>>>> b1f640e49abd4be59f81f5123a51553d1fd80e7c
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   flex-shrink: 0;
   justify-content: space-between;
@@ -30,7 +34,11 @@ html, body, #root {
   width: 32px;
   height: 32px;
   margin-left: -7px;
+<<<<<<< HEAD
   margin-top: 5px;
+=======
+  margin-top: 05px;
+>>>>>>> b1f640e49abd4be59f81f5123a51553d1fd80e7c
 }
 
 .leaflet-container {
@@ -216,6 +224,7 @@ html, body, #root {
   align-items: center;
   justify-content: center;
 }
+<<<<<<< HEAD
 
 .header-left {
   display: flex;
@@ -294,3 +303,5 @@ html, body, #root {
 .profile-details-popup button:hover {
   background-color: #217dbb;
 }
+=======
+>>>>>>> b1f640e49abd4be59f81f5123a51553d1fd80e7c
