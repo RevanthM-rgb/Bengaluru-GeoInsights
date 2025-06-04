@@ -856,11 +856,11 @@ export default function App() {
         />
 
         {/* Overlay Layers */}
-        {/* Use the new LeafletTreeLayer instead of the old TreeLayer */}
+       \
         <LeafletTreeLayer
           visible={layersVisibility.trees}
           treeData={treeData}
-          // openPopupFeature is not passed here as the layer manages popups internally
+        
         />
         <WardLayer
           visible={layersVisibility.ward}
